@@ -62,7 +62,7 @@ export const Login = ({ switchAuthHandler }) => {
         <div className="bg-white">
             <div className="flex h-screen flex-col items-center justify-center">
                 <div className="max-h-auto mx-auto max-w-xl">
-                    <div className="mb-8 space-y-3">
+                    <div className="mb-9 space-y-6">
                         <p className="text-xl font-semibold">Login</p>
                         <p className="text-gray-500">Enter your email, and we'll send a code to your inbox. <br />No need for passwords -- like magic!</p>
                     </div>
