@@ -10,16 +10,22 @@ export const useLogin = () => {
     const login = async (email, password) => {
         setIsLoading(true);
 
-        const response = await LoginRequest({ email, password });
-        setIsLoading(false);
+        try {
+            const response = await LoginRequest({ email, password });
+            setIsLoading(false);
 
-        if (response.error) {
-            return toast.error(response.e?.response?.data || 'Ocurrió un error al iniciar sesión, intenta de nuevo');
+            if (response.error) {
+                return toast.error(response.e?.response?.data || 'Ocurrió un error al iniciar sesión, intenta de nuevo');
+            }
+
+            const { userDetails } = response.data;
+            localStorage.setItem('user', JSON.stringify(userDetails));
+            navigate('/dashboardPage', { replace: true });
+            window.location.reload(); // Force reload
+        } catch (e) {
+            setIsLoading(false);
+            toast.error('Ocurrió un error al iniciar sesión, intenta de nuevo');
         }
-
-        const { userDetails } = response.data;
-        localStorage.setItem('user', JSON.stringify(userDetails));
-        navigate('/dashboardPage');
     };
 
     return { login, isLoading };
