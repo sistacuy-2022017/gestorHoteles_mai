@@ -23,7 +23,7 @@ export const Navbar = () => {
     return (
         <nav className="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full">
             <div className="sm:mb-0 self-center">
-                <NavButton text="Hotel" onClickHandler={handleNavigateToAuthPage}/>
+                <NavButton text="Login" onClickHandler={handleNavigateToAuthPage}/>
             </div>
         </nav>
     );
